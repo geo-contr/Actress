@@ -1028,12 +1028,15 @@ body{
     /*margin-right: 53px;*/
 }
 .swiper-pagination-current::after{
-    content: '———';
+    content: '';
     position: absolute;
-    /*height: 2px;*/
-    width: 55px;
-    color: #fff;
+    top: 12px;
+    left: 14px;
+    width: 45px;
+    height: 2px;
     font-weight: 700;
+    color: #fff;
+    background-color: #fff;
 }
 .swiper-pagination-total{
     position: absolute;
