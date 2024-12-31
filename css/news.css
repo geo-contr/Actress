@@ -4,7 +4,9 @@
 * Autoprefixer: v10.4.7
 * Browsers: last 4 version
 */
-
+html, body{
+    overflow-x: clip;
+}
 body {
     background-color: #fff;
     margin: 0;
