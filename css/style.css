@@ -815,13 +815,10 @@ main.foundation .foundation-content .actions {
     }
     .timeline .scroll-up {
         position: fixed;
-        padding: 20px;
+        padding: 0;
+        top: 96vh;
+        left: 96%;
         z-index: 4;
-        top: 93%;
-        left: 96.5%;
-        -webkit-transform: translateX(-50%);
-            -ms-transform: translateX(-50%);
-                transform: translateX(-50%);
     }
     .hero-image {
         position: relative;
