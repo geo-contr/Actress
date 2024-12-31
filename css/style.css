@@ -566,6 +566,18 @@ body{
         transition: all ease  .8s .25s!important;
     }
 }
+main.foundation .foundation-content {
+    background-color: #fff;
+    position: relative;
+    margin-top: 666px;
+    padding: 90px 70px;
+    overflow: hidden;
+    z-index: 20;
+}
+main.foundation .foundation-content .actions {
+    margin-left: 75px;
+    padding-top: 8px;
+}
 @media(max-width: 1100px){
     .biography-row-3 {
         margin-top: 200px;
@@ -595,6 +607,25 @@ body{
         -o-transition: all ease  .8s .15s!important;
         transition: all ease  .8s .15s!important;
     }
+    main.foundation .foundation-content {
+        padding-top: 30px;
+        margin-right: 0;
+    }
+    main.foundation .foundation-content .inner {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    main.foundation .foundation-content .entry {
+        -webkit-box-ordinal-group: 3;
+            -ms-flex-order: 2;
+                order: 2;
+    }
+    main.foundation .foundation-content .actions {
+        text-align: center;
+        margin: 0 0 13px;
+   } 
 }
 .reveal2.active, .reveal3.active, .reveal4.active, .reveal5.active, .reveal6.active, .reveal7.active, .reveal8.active {
     -webkit-transform: translateY(0);
@@ -1290,14 +1321,7 @@ button svg g, button svg polyline {
 main.foundation.page-archive .hero-image .background {
     background-color: #696091;
 }
-main.foundation .foundation-content {
-    background-color: #fff;
-    position: relative;
-    margin-top: 666px;
-    padding: 90px 70px;
-    overflow: hidden;
-    z-index: 20;
-}
+
 main.foundation .foundation-content .inner {
     max-width: 1200px;
     margin-right: auto;
@@ -1316,10 +1340,7 @@ main.foundation .foundation-content .entry {
 main.foundation .foundation-content .entry>* {
     margin-top: 0;
 }
-main.foundation .foundation-content .actions {
-    margin-left: 75px;
-    padding-top: 8px;
-}
+
 main.foundation .foundation-content .action {
     -webkit-transition: color .15s,border-color .15s;
     -o-transition: color .15s,border-color .15s;
@@ -1779,6 +1800,15 @@ main.contact .background .media {
         text-align: center;
         color: #695f93;
         z-index: 1;
+    }
+    main.foundation .foundation-content {
+        margin-top: 0;
+    }
+    main.foundation .foundation-content {
+        margin-top: 10px;
+        padding-right: 25px;
+        padding-left: 25px;
+        padding-bottom: 60px;
     }
 }
 
