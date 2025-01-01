@@ -746,7 +746,7 @@ main.foundation .foundation-content .actions {
     }
     .timeline-section .timeline-content {
         position: relative;
-        padding-right: 200px;
+        padding-right: 30px;
         white-space: normal;
         -ms-flex-item-align: start;
             align-self: flex-start;
@@ -823,7 +823,7 @@ main.foundation .foundation-content .actions {
         position: fixed;
         padding: 0;
         top: 95vh;
-        left: 95%;
+        left: calc(100% - 26px);
         z-index: 4;
     }
     .hero-image {
