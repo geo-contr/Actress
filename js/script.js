@@ -354,7 +354,7 @@ const descriptionCounter = document.querySelector('.swiper-counter');
 // Define when the element should stop moving (adjust as needed)
 const stopScrollPosition1 = 300; // Change this value based on when you'd like it to stop
 
-let lastScrollTop = 0; // Track the last scroll position
+let lastScrollTop = 300; // Track the last scroll position
 
 window.addEventListener('scroll', () => {
     // Get the current scroll position
@@ -370,16 +370,16 @@ window.addEventListener('scroll', () => {
     }
 
     // Update last scroll position
-    lastScrollTop = scrollTop;
+    // lastScrollTop = scrollTop;
 
     // Check if the scroll position is less than the stopping position
-    if (scrollTop < stopScrollPosition1) {
-        // Move the element by setting its top position dynamically
-        descriptionCounter.style.top = scrollTop + '94%';
-    } else {
-        // Fix the element at the stopping position
-        descriptionCounter.style.top = stopScrollPosition1 + '%';
-    }
+    // if (scrollTop < stopScrollPosition1) {
+    //     // Move the element by setting its top position dynamically
+    //     descriptionCounter.style.top = scrollTop + '94%';
+    // } else {
+    //     // Fix the element at the stopping position
+    //     descriptionCounter.style.top = stopScrollPosition1 + '%';
+    // }
 });
 
 
