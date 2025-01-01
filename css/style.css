@@ -444,6 +444,12 @@ body{
         left: -50px;
         top: 20px;
     }
+    .is-horizontal .f-carousel__nav .f-button.is-prev, .is-horizontal .f-carousel__nav .f-button.is-next, .is-horizontal .fancybox__nav .f-button.is-prev, .is-horizontal .fancybox__nav .f-button.is-next {
+        top: 47.3%;
+        -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+    }
 }
 @media(min-width: 768px){
     .container {
@@ -816,8 +822,8 @@ main.foundation .foundation-content .actions {
     .timeline .scroll-up {
         position: fixed;
         padding: 0;
-        top: 96vh;
-        left: 96%;
+        top: 95vh;
+        left: 95%;
         z-index: 4;
     }
     .hero-image {
@@ -934,6 +940,15 @@ main.foundation .foundation-content .actions {
     }
     main.contact .wp-image .sizer{
         /*height: 448px;*/
+    }
+    .is-horizontal .f-carousel__nav .f-button.is-prev, .is-horizontal .f-carousel__nav .f-button.is-next, .is-horizontal .fancybox__nav .f-button.is-prev, .is-horizontal .fancybox__nav .f-button.is-next {
+        top: 46.3%;
+        -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+    }
+    .biography .bio-content .inner {
+        background-color: #f1f1f1;
     }
 }
 @media(max-width: 575px){
