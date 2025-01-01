@@ -329,24 +329,59 @@ window.addEventListener('scroll', () => {
 
 
 
+// const descriptionCounter = document.querySelector('.swiper-counter');
+
+// // Define when the element should stop moving (adjust as needed)
+// const stopScrollPosition1 = 300; // Change this value based on when you'd like it to stop 
+
+// window.addEventListener('scroll', () => {
+//     // Get the current scroll position
+//     let scrollTop = window.scrollY || document.documentElement.scrollTop;
+    
+//     // Check if the scroll position is less than the stopping position
+//     if (scrollTop < stopScrollPosition1) {
+//         // Move the element by setting its top position dynamically
+//         descriptionCounter.style.top = scrollTop + '94%'; 
+//     } else {
+//         // Fix the element at the stopping position
+//         descriptionCounter.style.top = stopScrollPosition1 + '%';
+//     }
+// });
+
+
 const descriptionCounter = document.querySelector('.swiper-counter');
 
 // Define when the element should stop moving (adjust as needed)
-const stopScrollPosition1 = 300; // Change this value based on when you'd like it to stop 
+const stopScrollPosition1 = 300; // Change this value based on when you'd like it to stop
+
+let lastScrollTop = 0; // Track the last scroll position
 
 window.addEventListener('scroll', () => {
     // Get the current scroll position
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
-    
+
+    // Check if scrolling up or down
+    if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        descriptionCounter.style.opacity = '0';
+    } else {
+        // Scrolling up
+        descriptionCounter.style.opacity = '1';
+    }
+
+    // Update last scroll position
+    lastScrollTop = scrollTop;
+
     // Check if the scroll position is less than the stopping position
     if (scrollTop < stopScrollPosition1) {
         // Move the element by setting its top position dynamically
-        descriptionCounter.style.top = scrollTop + '94%'; 
+        descriptionCounter.style.top = scrollTop + '94%';
     } else {
         // Fix the element at the stopping position
         descriptionCounter.style.top = stopScrollPosition1 + '%';
     }
 });
+
 
 
 
