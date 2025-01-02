@@ -529,3 +529,23 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll);
 });
 // End of border-ის გარშემო ანიმაცია
+
+
+
+// When I don't want hover on a touchscreen
+const mainMenu = document.querySelector('.layout-default');
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Check if the device is touch-enabled
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    // Add the 'not-touch' class if the device is NOT touch-enabled
+    if (!isTouchDevice) {
+        mainMenu.classList.add('not-touch');
+    } else {
+        mainMenu.classList.remove('not-touch');
+    }
+});
+
+// console.log(mainMenu.classList.contains('not-touch'));
+// End of When I don't want hover on a touchscreen
