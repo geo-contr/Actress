@@ -1282,6 +1282,16 @@ button svg g, button svg polyline {
 .fancybox__caption {
     padding: 14px 0 12px 0;
 }
+.f-fadeIn {
+    -webkit-animation: var(--f-transition-duration, 0.4s) var(--f-transition-easing, ease) var(--f-transition-delay, 0s) both f-fadeIn;
+            animation: var(--f-transition-duration, 0.4s) var(--f-transition-easing, ease) var(--f-transition-delay, 0s) both f-fadeIn;
+    z-index: 2
+}
+.f-fadeOut {
+    -webkit-animation: var(--f-transition-duration, 0.4s) var(--f-transition-easing, ease) var(--f-transition-delay, 0s) both f-fadeOut;
+            animation: var(--f-transition-duration, 0.4s) var(--f-transition-easing, ease) var(--f-transition-delay, 0s) both f-fadeOut;
+    z-index: 1
+}
 /*End of fancybox*/
 .hidden {
   display: none !important;
