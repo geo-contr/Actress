@@ -916,6 +916,24 @@
 	<script type="text/javascript" src="js/biography.js"></script>
 
 
+	<script>
+
+		const mainMenu = document.querySelector('.layout-default');
+
+	    document.addEventListener('DOMContentLoaded', function () {
+	        // Check if the device is touch-enabled
+	        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+	        // Add the 'not-touch' class if the device is NOT touch-enabled
+	        if (!isTouchDevice) {
+	            mainMenu.classList.add('not-touch');
+	        } else {
+	            mainMenu.classList.remove('not-touch');
+	        }
+	    });
+	</script>
+
+
 
 
 
