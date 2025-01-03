@@ -489,7 +489,7 @@ body{
     .video-content {
         background-color: #fff;
         position: relative;
-        margin-top: 666px;
+        /*margin-top: 666px;*/
         padding: 90px 70px;
         overflow: hidden;
         z-index: 20;
@@ -671,7 +671,7 @@ main.foundation .foundation-content .actions {
     .video-content {
         background-color: #fff;
         position: relative;
-        margin-top: 666px;
+        /*margin-top: 666px;*/
         padding: 90px 34px;
         overflow: hidden;
         z-index: 20;
@@ -955,7 +955,7 @@ main.foundation .foundation-content .actions {
     .video-content {
         background-color: #fff;
         position: relative;
-        margin-top: 666px;
+        /*margin-top: 666px;*/
         padding: 90px 0;
         overflow: hidden;
         z-index: 20;
@@ -1462,6 +1462,10 @@ main.contact .background .media {
 .page-video figure img{
     -webkit-filter: grayscale(1);
             filter: grayscale(1);
+}
+.page-video .spacer{
+    position: relative;
+    min-height: 70vh;
 }
 .video-content .container .row{
     --bs-gutter-x: 5.5rem;
