@@ -99,11 +99,6 @@ body{
     -webkit-filter: unset;
             filter: unset;
 }
-.slider .swiper-slide img.yPosition1{
-    -o-object-position: 100% 23%;
-       object-position: 100% 23%;
-    /*object-position: 100% 36%;*/
-}
 .slider .swiper-slide img.yPosition2{
     -o-object-position: 100% 23%;
        object-position: 100% 23%;
@@ -142,6 +137,11 @@ body{
     opacity: 1;
 }
 @media(min-width: 751px){
+    .slider .swiper-slide img.yPosition1{
+        -o-object-position: 100% 23%;
+           object-position: 100% 23%;
+        /*object-position: 100% 36%;*/
+    }
     .col-md-6 {
         -webkit-box-flex: 0;
             -ms-flex: 0 0 auto;
