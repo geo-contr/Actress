@@ -508,8 +508,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const pathLength = path.getTotalLength();
 
             // Calculate the proximity percentage
-            const start = windowHeight / 2; // Start animation when element enters the viewport
-            const end = windowHeight / 2; // Fully wrap when element is near the center
+            const start = windowHeight / 2.5; // Start animation when element enters the viewport
+            const end = windowHeight / 2.5; // Fully wrap when element is near the center
             const progress = Math.min(Math.max((rect.top - end) / (start - end), 0), 1);
 
             // Update stroke-dashoffset based on progress
@@ -523,11 +523,47 @@ document.addEventListener('DOMContentLoaded', () => {
         const pathLength = path.getTotalLength();
         path.style.strokeDasharray = `${pathLength}px`;
         path.style.strokeDashoffset = `${pathLength}px`; // Start fully hidden
-        path.style.transition = 'stroke-dashoffset 1.5s linear'; // Smooth updates
+        path.style.transition = 'stroke-dashoffset 1s linear'; // Smooth updates
     });
 
     window.addEventListener('scroll', handleScroll);
 });
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const offsetBorders = document.querySelectorAll('.offset-border');
+//     const triggerHook = 0.5; // Trigger at 50% of the viewport height
+
+//     const handleScroll = () => {
+//         offsetBorders.forEach(border => {
+//             const path = border.querySelector('path');
+//             const rect = border.getBoundingClientRect();
+//             const windowHeight = window.innerHeight;
+//             const triggerPoint = windowHeight * triggerHook; // Calculate trigger point
+//             const pathLength = path.getTotalLength();
+
+//             // Calculate the proximity percentage
+//             const start = triggerPoint; // Start animation at triggerHook
+//             const end = windowHeight / 2; // Fully wrap when element is near the center
+//             const progress = Math.min(Math.max((rect.top - end) / (start - end), 0), 1);
+
+//             // Update stroke-dashoffset based on progress
+//             path.style.strokeDashoffset = pathLength * progress;
+//         });
+//     };
+
+//     // Initialize path styles
+//     offsetBorders.forEach(border => {
+//         const path = border.querySelector('path');
+//         const pathLength = path.getTotalLength();
+//         path.style.strokeDasharray = `${pathLength}px`;
+//         path.style.strokeDashoffset = `${pathLength}px`; // Start fully hidden
+//         path.style.transition = 'stroke-dashoffset 1s linear'; // Smooth updates
+//     });
+
+//     window.addEventListener('scroll', handleScroll);
+// });
+
 // End of border-ის გარშემო ანიმაცია
 
 
