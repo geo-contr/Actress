@@ -100,8 +100,6 @@ body{
             filter: unset;
 }
 .slider .swiper-slide img.yPosition2{
-    -o-object-position: 100% 23%;
-       object-position: 100% 23%;
     -webkit-filter: unset;
             filter: unset;
 }
@@ -141,6 +139,12 @@ body{
         -o-object-position: 100% 23%;
            object-position: 100% 23%;
         /*object-position: 100% 36%;*/
+    }
+    .slider .swiper-slide img.yPosition2{
+        -o-object-position: 100% 23%;
+           object-position: 100% 23%;
+        -webkit-filter: unset;
+                filter: unset;
     }
     .col-md-6 {
         -webkit-box-flex: 0;
@@ -678,6 +682,10 @@ main.foundation .foundation-content .actions {
     }
 }
 @media(max-width: 750px){
+    .slider .swiper-slide img.xPosition4{
+        -o-object-position: 100%;
+           object-position: 100%;
+    }
     .item-description1 {
         position: absolute;
         top: 32%;
