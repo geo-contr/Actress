@@ -958,6 +958,21 @@ main.foundation .foundation-content .actions {
     .biography .bio-content .inner {
         background-color: #f1f1f1;
     }
+    .reveal9{
+        -webkit-transform: translateY(30px);
+            -ms-transform: translateY(30px);
+                transform: translateY(30px);
+        opacity: 0;
+        -webkit-transition: all ease .8s!important;
+        -o-transition: all ease .8s!important;
+        transition: all ease .8s!important;
+    }
+    .reveal9.active {
+        -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+                transform: translateY(0);
+        opacity: 1;
+    }
 }
 @media(max-width: 575px){
     .video-content {
