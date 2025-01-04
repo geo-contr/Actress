@@ -196,7 +196,7 @@ function saveToLocalStorageDebounced(offset, scrollY) {
 window.addEventListener('scroll', reveal);
 
 function reveal(){
-    var reveals = document.querySelectorAll('.reveal2, .reveal3, .reveal4, .reveal5, .reveal6, .reveal7, .reveal8');
+    var reveals = document.querySelectorAll('.reveal2, .reveal3, .reveal4, .reveal5, .reveal6, .reveal7, .reveal8, .reveal9');
 
     for(var i = 0; i < reveals.length; i++){
 
