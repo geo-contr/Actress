@@ -596,8 +596,10 @@ main.foundation .foundation-content .actions {
         position: relative;
     }
     main.contact .background {
-        width: 90%;
-        right: -45%;
+        /*width: 90%;
+        right: -45%;*/
+        width: 64%;
+        right: -22%;
     }
     .reveal2, .reveal4, .reveal6, .reveal8{
         -webkit-transform: translateY(30px);
