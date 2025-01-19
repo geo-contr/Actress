@@ -166,43 +166,43 @@ $(".menu-item.wp-menu-item.menu-item").click(function(event){
 // });
 
 // loadingSpinner-ით
-document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
-    thumbnail.addEventListener('click', function () {
-        const iframe = this.nextElementSibling.nextElementSibling; // Select the iframe element
-        const spinner = this.nextElementSibling; // Select the spinner element
-        const videoSrc = this.dataset.videoSrc + '?autoplay=1';
+// document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
+//     thumbnail.addEventListener('click', function () {
+//         const iframe = this.nextElementSibling.nextElementSibling; // Select the iframe element
+//         const spinner = this.nextElementSibling; // Select the spinner element
+//         const videoSrc = this.dataset.videoSrc + '?autoplay=1';
 
-        // Get the current height of the thumbnail
-        const thumbnailHeight = this.offsetHeight;
+//         // Get the current height of the thumbnail
+//         const thumbnailHeight = this.offsetHeight;
 
-        // Create a placeholder div to preserve space
-        const placeholder = document.createElement('div');
-        placeholder.className = 'placeholder';
-        placeholder.style.height = `${thumbnailHeight}px`;
+//         // Create a placeholder div to preserve space
+//         const placeholder = document.createElement('div');
+//         placeholder.className = 'placeholder';
+//         placeholder.style.height = `${thumbnailHeight}px`;
 
-        // Insert the placeholder into the DOM
-        this.parentElement.insertBefore(placeholder, this);
+//         // Insert the placeholder into the DOM
+//         this.parentElement.insertBefore(placeholder, this);
 
-        // Show the spinner
-        spinner.style.display = 'block';
+//         // Show the spinner
+//         spinner.style.display = 'block';
 
-        // Set up the iframe
-        iframe.style.display = 'none'; // Ensure the iframe is hidden initially
-        iframe.src = videoSrc;
+//         // Set up the iframe
+//         iframe.style.display = 'none'; // Ensure the iframe is hidden initially
+//         iframe.src = videoSrc;
 
-        // Add a class to smoothly reduce the height of the thumbnail
-        this.classList.add('hidden');
+//         // Add a class to smoothly reduce the height of the thumbnail
+//         this.classList.add('hidden');
 
-        // Wait for the iframe to load before hiding the spinner and showing the iframe
-        iframe.onload = function () {
-            spinner.style.display = 'none'; // Hide the spinner
-            iframe.style.display = 'block'; // Show the iframe
+//         // Wait for the iframe to load before hiding the spinner and showing the iframe
+//         iframe.onload = function () {
+//             spinner.style.display = 'none'; // Hide the spinner
+//             iframe.style.display = 'block'; // Show the iframe
 
-            // Remove the placeholder after the thumbnail is collapsed
-            placeholder.style.display = 'none';
-        };
-    });
-});
+//             // Remove the placeholder after the thumbnail is collapsed
+//             placeholder.style.display = 'none';
+//         };
+//     });
+// });
 // End of video-thumbnail-ის შეცვლა
 
 
