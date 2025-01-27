@@ -20,7 +20,8 @@
 	<link rel="stylesheet" type="text/css" href="css/swiper-bundle.min.css"> <!-- The latest version -->
 	<!-- <link rel="stylesheet" type="text/css" href="css/baguetteBox.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="css/fancybox.min.css">
-
+	
+	<link rel="stylesheet" type="text/css" href="css/OverlayScrollbars.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/biography.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -274,7 +275,13 @@
 								</svg>
 							</div>
 						</a>
-						<a href="gallery.html" class="back-link link-prefetched"><div class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px" height="19.6px" viewBox="0 0 27 19.6" xml:space="preserve"><polygon fill="#FFFFFF" points="27,8.6 4.8,8.6 12.1,1.8 10.5,0 0,9.8 10.5,19.6 12.1,17.8 4.8,11 27,11 "></polygon></svg></div></a>
+						<a href="gallery.html" class="back-link link-prefetched">
+							<div class="svg-wrapper">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27px" height="19.6px" viewBox="0 0 27 19.6" xml:space="preserve">
+									<polygon fill="#FFFFFF" points="27,8.6 4.8,8.6 12.1,1.8 10.5,0 0,9.8 10.5,19.6 12.1,17.8 4.8,11 27,11 "></polygon>
+								</svg>
+							</div>
+						</a>
 						<button class="hamburger hamburger2">
 							<div class="svg-wrapper">
 								<svg xmlns="http://www.w3.org/2000/svg" width="21" height="16" viewBox="0 0 21 16">
@@ -322,7 +329,7 @@
 									<p class="gutenberg-paragraph align-default margin-text gutenberg-block">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa officia deserunt.</p>
 									<p class="gutenberg-paragraph align-default margin-text gutenberg-block">"Ut enim ad minim veniam, quis nostrud exercitation ullamco" laboris "nisi ut aliquip ex commodo consequat."</p>
 								</div>
-								<div class="load-on-view next-post below-view" id="pause">
+								<div class="load-on-view next-post below-view below-one" id="line-one">
 									<div class="label">Next Up</div>
 									<div class="bar">
 										<span class="line"></span>
@@ -331,7 +338,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="single-post post-type-post has-intersection-observer has-entered">
+					<div class="single-post post-type-post has-intersection-observer has-entered" id="pause">
 						<div class="hero">
 							<figure class="image wp-image mode-cover has-loaded has-background-color is-orientation-portrait object-fit-cover object-fit-cover2 follow_marg2">
 								<div class="sizer">
@@ -378,7 +385,7 @@
 									<p class="gutenberg-paragraph align-default margin-text gutenberg-block">House of Audran</p>
 									<p class="gutenberg-paragraph align-default margin-text gutenberg-block">Excepteur sint occaecat dolore.</p>
 								</div>
-								<div class="load-on-view next-post below-view" id="pause">
+								<div class="load-on-view next-post below-view below-two" id="line-two">
 									<div class="label">Next Up
 					                </div>
 					                <div class="bar">
@@ -388,7 +395,7 @@
 					        </div>
 					    </div>
 				    </div>
-				    <div class="single-post post-type-post has-intersection-observer has-entered">
+				    <div class="single-post post-type-post has-intersection-observer has-entered" id="pause1">
 				    	<div class="hero">
 				    		<figure class="image wp-image mode-cover has-loaded has-background-color is-orientation-landscape object-fit-cover follow_marg3">
 				    			<div class="sizer">
@@ -503,7 +510,7 @@
 							</div>
 						</a>
 					</button>
-					<section class="footer">
+					<section class="footer" id="footer">
 						<div class="divider"></div>
 						<div class="support-menu"><h4>Support</h4>
 							<ul class="menu-social-menu wp-menu name-support-menu has-loaded">
@@ -626,7 +633,10 @@
 	<!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script> -->
 
 	<!-- <script type="text/javascript" src="js/script.js"></script> -->
+	<script type="text/javascript" src="js/OverlayScrollbars.min.js"></script>
+	<!-- <script type="text/javascript" src="js/archive_overlayScroll.js"></script> -->
 	<script type="text/javascript" src="js/archive.js"></script>
+
 
 
 
