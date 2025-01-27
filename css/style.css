@@ -10,10 +10,12 @@ html, body{
     /*min-height: 100vh;*/
     /*overflow-x: clip;*/
 }
+
 /*სქროლბარის დამალვა/გამოჩენა*/
 /*::-webkit-scrollbar {
     display: none;
 }*/
+
 body{
     -webkit-animation: load .25s .25s both;
             animation: load .25s .25s both;
@@ -1767,6 +1769,7 @@ main.contact .background .media {
 .infidele_page main.fallback .inner {
     padding: 50px 80px;
     max-width: 960px;
+    /*max-width: 1120px;*/ /*OverlayScrollbars*/
     margin: auto;
 }
 .infidele_page main.fallback .single-content .meta {
@@ -1870,6 +1873,9 @@ main.contact .background .media {
     -o-object-position: 6.5% 21%;
        object-position: 6.5% 21%;
 }
+.infidele_page #pause, .infidele_page #pause1, .infidele_page #footer{
+    display: none;
+}
 @media(max-width: 750px){
     .infidele_page main.fallback .inner {
         padding-right: 25px;
@@ -1966,3 +1972,16 @@ main.contact .background .media {
                 transform: translateY(-7px);
     }
 }
+
+
+
+/*OverlayScrollbars*/
+html.os-html > .os-host > .os-scrollbar {
+    position: absolute;
+    z-index: 999999;
+    opacity: 0;
+}
+body.infidele_body:hover  .os-scrollbar {
+    opacity: 1;
+}
+/*End of OverlayScrollbars*/
