@@ -244,48 +244,7 @@ $(".menu-item.wp-menu-item.menu-item").click(function(event){
 // });
 
 
-
 // ბევრ querySelector-ზე
-// document.addEventListener("DOMContentLoaded", () => {
-//   const elements = document.querySelectorAll(".load-on-view.next-post.below-view");
-
-//   if (elements.length > 0) {
-//     const observer = new IntersectionObserver((entries) => {
-//       entries.forEach((entry) => {
-//         if (entry.isIntersecting) {
-//           const element = entry.target;
-
-//           // Change to "in-view" class and stop scrolling
-//           element.classList.remove("below-view");
-//           // element.classList.add("in-view");
-//           element.classList.add("loaded");
-
-//           // Stop scrolling
-//           document.body.style.overflow = "hidden";
-
-//           // After 1 second, allow scrolling and change to "loaded-this"
-//           setTimeout(() => {
-//             // element.classList.remove("in-view");
-//             element.classList.remove("below-view");
-//             element.classList.add("loaded");
-
-//             // Re-enable scrolling
-//             document.body.style.overflow = "";
-//           }, 1000);
-
-//           // Stop observing this element after triggering
-//           observer.unobserve(element);
-//         }
-//       });
-//     });
-
-//     // Observe each element
-//     elements.forEach((element) => observer.observe(element));
-//   }
-// });
-
-
-// With ScrollMagic elements = triggerElements
 // document.addEventListener("DOMContentLoaded", () => {
 //   // Check if ScrollMagic is available
 //   if (typeof ScrollMagic === "undefined") {
@@ -298,17 +257,27 @@ $(".menu-item.wp-menu-item.menu-item").click(function(event){
 
 //   // Select all elements to animate
 //   const elements = document.querySelectorAll(".load-on-view.next-post.below-view");
+//   const triggerElements = document.querySelectorAll("#pause");
 
-//   elements.forEach((element) => {
-//     // Create a ScrollMagic scene for each element
+//   // Ensure the same number of elements and triggers
+//   if (elements.length !== triggerElements.length) {
+//     console.error("Mismatch between the number of elements and triggers.");
+//     return;
+//   }
+
+//   // Loop through both elements and trigger elements
+//   elements.forEach((element, index) => {
+//     const triggerElement = triggerElements[index]; // Match trigger to element
+
+//     // Create a ScrollMagic scene for each pair of element and trigger
 //     const scene = new ScrollMagic.Scene({
-//       triggerElement: element, // Element that triggers the scene
+//       triggerElement: triggerElement, // Specific trigger element for this scene
 //       triggerHook: 1, // Trigger when the element is near the viewport bottom (adjust as needed)
+//       // duration: 1
 //     })
 //       .on("enter", () => {
 //         // When the element enters the viewport
 //         element.classList.remove("below-view");
-//         // element.classList.add("in-view");
 //         element.classList.add("loaded");
 
 //         // Disable scrolling
@@ -316,71 +285,113 @@ $(".menu-item.wp-menu-item.menu-item").click(function(event){
 
 //         // After 1 second, change class and re-enable scrolling
 //         setTimeout(() => {
-//           // element.classList.remove("in-view");
 //           element.classList.remove("below-view");
 //           element.classList.add("loaded");
 //           document.body.style.overflow = "";
 
 //           // Remove the scene to prevent further triggers
 //           scene.remove();
-//         }, 1000);
+//         }, 1400);
 //       })
 //       .addTo(controller); // Add the scene to the ScrollMagic controller
 //   });
 // });
 
-// With ScrollMagic elements and triggerElements are different
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   // Check if ScrollMagic is available
+//   if (typeof ScrollMagic === "undefined") {
+//     console.error("ScrollMagic is not loaded. Please include the ScrollMagic library.");
+//     return;
+//   }
+
+//   // Select all elements to animate
+//   const belowOne = document.querySelector(".below-one");
+//   const pause = document.querySelector("#pause");
+
+//   // Create a ScrollMagic controller
+//   const controller = new ScrollMagic.Controller();
+
+//   // Scroll to #line-one
+//   new ScrollMagic.Scene({
+//     triggerElement: "#line-one",
+//     triggerHook: 1, // Adjust the triggerHook for more reliability
+//   })
+//     .on("enter", () => {
+//       // When #line-one is in view
+//       belowOne.classList.add("loaded");
+
+//       // After 1400ms, show the #pause element
+//       setTimeout(() => {
+//         pause.style.display = "block";
+//       }, 1400);
+//     })
+//     .addTo(controller);
+// });
+
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Check if ScrollMagic is available
+  // Check if ScrollMagic is loaded
   if (typeof ScrollMagic === "undefined") {
-    console.error("ScrollMagic is not loaded. Please include the ScrollMagic library.");
+    console.error("ScrollMagic is not loaded. Please include the library.");
     return;
   }
 
-  // Create a ScrollMagic controller
+  // Create a single ScrollMagic controller
   const controller = new ScrollMagic.Controller();
 
-  // Select all elements to animate
-  const elements = document.querySelectorAll(".load-on-view.next-post.below-view");
-  const triggerElements = document.querySelectorAll("#pause");
+  // Define flags to track scene completion
+  let sceneOneDone = false;
 
-  // Ensure the same number of elements and triggers
-  if (elements.length !== triggerElements.length) {
-    console.error("Mismatch between the number of elements and triggers.");
-    return;
-  }
+  // Scene 1: Trigger when #line-one is in view
+  const belowOne = document.querySelector(".below-one");
+  const pause = document.querySelector("#pause");
 
-  // Loop through both elements and trigger elements
-  elements.forEach((element, index) => {
-    const triggerElement = triggerElements[index]; // Match trigger to element
+  new ScrollMagic.Scene({
+    triggerElement: "#line-one",
+    triggerHook: 1, // Trigger at the bottom of the viewport
+  })
+    .on("enter", () => {
+      if (!sceneOneDone) {
+        console.log("Scene 1 triggered"); // Debugging log
+        belowOne.classList.add("loaded");
 
-    // Create a ScrollMagic scene for each pair of element and trigger
-    const scene = new ScrollMagic.Scene({
-      triggerElement: triggerElement, // Specific trigger element for this scene
-      triggerHook: 1, // Trigger when the element is near the viewport bottom (adjust as needed)
-      // duration: 1
-    })
-      .on("enter", () => {
-        // When the element enters the viewport
-        element.classList.remove("below-view");
-        element.classList.add("loaded");
-
-        // Disable scrolling
-        document.body.style.overflow = "hidden";
-
-        // After 1 second, change class and re-enable scrolling
+        // After 1400ms, show the #pause element and mark Scene 1 as done
         setTimeout(() => {
-          element.classList.remove("below-view");
-          element.classList.add("loaded");
-          document.body.style.overflow = "";
-
-          // Remove the scene to prevent further triggers
-          scene.remove();
+          pause.style.display = "block";
+          sceneOneDone = true; // Allow the next scene to trigger
         }, 1400);
-      })
-      .addTo(controller); // Add the scene to the ScrollMagic controller
-  });
+      }
+    })
+    .addTo(controller);
+
+  // Scene 2: Trigger when #line-two is in view (only after Scene 1 is done)
+  const belowTwo = document.querySelector(".below-two");
+  const pause1 = document.querySelector("#pause1");
+  const footer = document.querySelector("#footer");
+
+  new ScrollMagic.Scene({
+    triggerElement: "#line-two",
+    triggerHook: 1, // Trigger at the bottom of the viewport
+  })
+    .on("enter", () => {
+      if (sceneOneDone) {
+        console.log("Scene 2 triggered"); // Debugging log
+        belowTwo.classList.add("loaded");
+
+        // After 1400ms, show the #pause1 and #footer elements
+        setTimeout(() => {
+          pause1.style.display = "block";
+          footer.style.display = "flex";
+        }, 1400);
+      } else {
+        console.log("Scene 2 skipped because Scene 1 is not done yet.");
+      }
+    })
+    .addTo(controller);
 });
+
+
 
 
 
@@ -585,3 +596,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // console.log(mainMenu.classList.contains('not-touch'));
 // End of When I don't want hover on a touchscreen
+
+
+
+
+// const osInstance = OverlayScrollbars(document.body, {});
+
+
