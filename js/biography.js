@@ -346,7 +346,8 @@ if (mediaQuery.matches) {
             })
             .addTo(controller);
 
-        // Scroll to sections on button click
+
+        // Scroll to sections on button click სქროლის მიდევნების გარეშე
         // $(".decade-block a").on("click", function (e) {
         //     e.preventDefault();
 
@@ -365,6 +366,7 @@ if (mediaQuery.matches) {
         //         // Calculate progress (relative to the scroll distance)
         //         var horizontalProgress = targetOffsetLeft / scrollDistance;
 
+        //         // Manually set the scroll position of the wrapper
         //         gsap.to($scrollWrap, {
         //             duration: 0.5,
         //             x: -targetOffsetLeft, // Scroll to the target
@@ -375,141 +377,114 @@ if (mediaQuery.matches) {
         //                 }
         //                 // Update the progress bar
         //                 $(".progress").css("width", (horizontalProgress * 100) + "%");
+        //             },
+        //             onComplete: function () {
+        //                 // After the animation completes, update the native scrollbar
+        //                 $scrollWrap.scrollLeft(targetOffsetLeft);
         //             }
         //         });
-
-        //         // Manually update ScrollMagic scene progress
-        //         // if (wipeScene) {
-        //         //     wipeScene.progress(horizontalProgress);
-        //         // }
-
-        //         // // Update the progress bar
-        //         // $(".progress").css("width", (horizontalProgress * 100) + "%");
 
         //         // Update color timeline progress
         //         if (colorTimeline) {
         //             colorTimeline.progress(horizontalProgress);
         //         }
-
-        //         // Now, manually scroll the container to the target position
-        //         $scrollWrap.scrollLeft(targetOffsetLeft);
         //     }
         // });
 
 
-        $(".decade-block a").on("click", function (e) {
-            e.preventDefault();
-
-            var targetId = $(this).attr("href").substring(1); // Get the ID (e.g., 's1930')
-            var targetElement = $("#" + targetId);
-
-            if (targetElement.length) {
-                var $scrollWrap = $(".scroll-wrap2");
-                var containerWidth = $scrollWrap.parent().outerWidth();
-                var totalWidth = $scrollWrap[0].scrollWidth;
-
-                // Calculate the target scroll offset
-                var targetOffsetLeft = targetElement.position().left;
-                var scrollDistance = totalWidth - containerWidth;
-
-                // Calculate progress (relative to the scroll distance)
-                var horizontalProgress = targetOffsetLeft / scrollDistance;
-
-                // Manually set the scroll position of the wrapper
-                gsap.to($scrollWrap, {
-                    duration: 0.5,
-                    x: -targetOffsetLeft, // Scroll to the target
-                    onUpdate: function () {
-                        // Update ScrollMagic scene progress
-                        if (wipeScene) {
-                            wipeScene.progress(horizontalProgress);
-                        }
-                        // Update the progress bar
-                        $(".progress").css("width", (horizontalProgress * 100) + "%");
-                    },
-                    onComplete: function () {
-                        // After the animation completes, update the native scrollbar
-                        $scrollWrap.scrollLeft(targetOffsetLeft);
-                    }
-                });
-
-                // Update color timeline progress
-                if (colorTimeline) {
-                    colorTimeline.progress(horizontalProgress);
-                }
-            }
-        });
-
-
-
-
-
-
-
-
-
+        // სანახევროდ დახვეწილი სკრიპტი სქროლის მიდევნების
         // $(".decade-block a").on("click", function (e) {
         //     e.preventDefault();
 
-        //     var targetId = $(this).attr("href").substring(1); // Extract the target ID
+        //     var targetId = $(this).attr("href").substring(1);
         //     var targetElement = $("#" + targetId);
 
         //     if (targetElement.length) {
         //         var $scrollWrap = $(".scroll-wrap2");
         //         var containerWidth = $scrollWrap.parent().outerWidth();
         //         var totalWidth = $scrollWrap[0].scrollWidth;
-
-        //         // Calculate total horizontal scrollable distance
         //         var scrollDistance = totalWidth - containerWidth;
 
-        //         if (scrollDistance <= 0) {
-        //             console.warn("No scrollable distance in .scroll-wrap2");
-        //             return;
-        //         }
-
-        //         // Get the target's offset relative to the scrollable container
         //         var targetOffsetLeft = targetElement.position().left;
-
-        //         // Clamp the target offset within valid bounds
-        //         targetOffsetLeft = Math.max(0, Math.min(targetOffsetLeft, scrollDistance));
-
-        //         // Calculate horizontal progress (0 to 1)
         //         var horizontalProgress = targetOffsetLeft / scrollDistance;
 
-        //         // Map horizontal progress to the browser's vertical scroll range
-        //         var maxScrollTop = document.documentElement.scrollHeight - window.innerHeight; // Max vertical scroll position
-        //         var docScrollPosition = Math.round(horizontalProgress * maxScrollTop); // Round to avoid fractional errors
+        //         // Use controller.scrollTo to sync both ScrollMagic and the native scrollbar
+        //         controller.scrollTo(wipeScene.scrollOffset() + horizontalProgress * wipeScene.duration());
 
-        //         console.log({
-        //             targetId,
-        //             targetOffsetLeft,
-        //             horizontalProgress,
-        //             docScrollPosition,
-        //             scrollDistance,
-        //             maxScrollTop,
-        //         }); // Debugging output for tracking
 
-        //         // Use GSAP to animate the horizontal scroll and synchronize the vertical scrollbar
-        //         gsap.to($scrollWrap, {
-        //             duration: 0.5,
-        //             x: -targetOffsetLeft, // Scroll horizontally to the target
-        //             onUpdate: function () {
-        //                 // Synchronize vertical scrollbar during animation
-        //                 var currentScrollPosition = Math.round(horizontalProgress * maxScrollTop);
-        //                 window.scrollTo(0, currentScrollPosition);
-        //             },
-        //             onComplete: function () {
-        //                 // Ensure vertical scrollbar aligns correctly after animation
-        //                 window.scrollTo(0, docScrollPosition);
-        //             },
+        //         // Override ScrollMagic's scrollTo function
+        //         controller.scrollTo(function (newScrollPos) {
+        //             gsap.to(window, {
+        //                 duration: 0.8,  // Smooth animation duration
+        //                 scrollTo: { y: newScrollPos, autoKill: false },
+        //                 ease: "power2.inOut"
+        //             });
         //         });
 
-        //         // Synchronize the color timeline with horizontal progress
+
+        //         // Sync color timeline
         //         if (colorTimeline) {
         //             colorTimeline.progress(horizontalProgress);
         //         }
         //     }
         // });
+
+
+        // Ensure ScrollMagic uses GSAP for smooth scrolling (Final Code!)
+            controller.scrollTo(function (newScrollPos) {
+                gsap.to(window, {
+                    duration: 0.8,
+                    scrollTo: { y: newScrollPos, autoKill: false },
+                    ease: "power2.inOut"
+                });
+            });
+
+            let firstClick = true; // Track first click
+
+            $(".decade-block a").on("click", function (e) {
+                e.preventDefault();
+
+                var targetId = $(this).attr("href").substring(1);
+                var targetElement = $("#" + targetId);
+
+                if (targetElement.length) {
+                    var $scrollWrap = $(".scroll-wrap2");
+                    var containerWidth = $scrollWrap.parent().outerWidth();
+                    var totalWidth = $scrollWrap[0].scrollWidth;
+                    var scrollDistance = totalWidth - containerWidth;
+
+                    var targetOffsetLeft = targetElement.position().left;
+                    var horizontalProgress = targetOffsetLeft / scrollDistance;
+                    var scrollTarget = wipeScene.scrollOffset() + horizontalProgress * wipeScene.duration();
+
+                    // Ensure the first click also animates
+                    if (firstClick) {
+                        firstClick = false;
+                        gsap.to(window, {
+                            duration: 0.8,
+                            scrollTo: { y: scrollTarget, autoKill: false },
+                            ease: "power2.inOut"
+                        });
+                    } else {
+                        controller.scrollTo(scrollTarget);
+                    }
+
+                    // Animate ScrollMagic scene progress
+                    gsap.to(wipeScene, {
+                        duration: 0.8,
+                        progress: horizontalProgress,
+                        ease: "power2.inOut",
+                        onUpdate: function () {
+                            $(".progress").css("width", (horizontalProgress * 100) + "%");
+                        }
+                    });
+
+                    // Sync color timeline როდესაც ფრის ცვლილება მინდა უცნაურად
+                    // if (colorTimeline) {
+                    //     gsap.to(colorTimeline, { duration: 0.8, progress: horizontalProgress, ease: "power2.inOut" });
+                    // }
+                }
+            });
     });
 // End of Horizontal scroll
 
@@ -530,6 +505,23 @@ if (mediaQuery.matches) {
             scrollProgress.classList.remove('open'); // Remove the 'open' class when hover ends
         });
     }
+
+
+    // const mainMenu = document.querySelector('.layout-default');
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     // Check if the device is touch-enabled
+    //     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    //     // Add the 'not-touch' class if the device is NOT touch-enabled
+    //     if (!isTouchDevice) {
+    //         mainMenu.classList.add('not-touch');
+    //     } else {
+    //         mainMenu.classList.remove('not-touch');
+    //     }
+    // });
+
+    // console.log(mainMenu.classList.contains('not-touch'));
     // End of When I don't want hover on a touchscreen
 
 
