@@ -1985,3 +1985,8 @@ body.infidele_body:hover  .os-scrollbar {
     opacity: 1;
 }
 /*End of OverlayScrollbars*/
+
+
+.image-column_zIndex{
+    z-index: 1;
+}
